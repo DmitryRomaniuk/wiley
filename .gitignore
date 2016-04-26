@@ -1,3 +1,4 @@
 .git/
 .idea/
+/firebase.json
 node_modules/

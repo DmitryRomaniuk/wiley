@@ -2,11 +2,7 @@
   "name": "wiley",
   "version": "1.0.0",
   "description": "task reminder",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
+  "main": "index.html",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DmitryRomaniuk/wiley.git"
@@ -16,9 +12,5 @@
   "bugs": {
     "url": "https://github.com/DmitryRomaniuk/wiley/issues"
   },
-  "homepage": "https://github.com/DmitryRomaniuk/wiley#readme",
-  "devDependencies": {
-    "http": "0.0.0",
-    "node-static": "^0.7.7"
-  }
+  "homepage": "https://github.com/DmitryRomaniuk/wiley#readme"
 }

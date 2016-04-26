@@ -1,5 +1,5 @@
 var saveList;
-if (localStorage.saveListTest) { saveList = angular.fromJson(localStorage.saveListTest); }
+if (localStorage.saveListH) { saveList = angular.fromJson(localStorage.saveListH); }
 else {
     saveList = {
         items: [
@@ -13,27 +13,29 @@ else {
 var titleTaskApp = angular.module("titleTaskApp", []);
 titleTaskApp.controller("titleTaskController", function ($scope) {
     $scope.list = saveList;
-    $scope.saveInLocalStorage = function () { localStorage.saveListTest = angular.toJson($scope.list); };
+    $scope.saveInLocalStorage = function () { localStorage.saveListH = angular.toJson($scope.list); };
     $scope.eraseElem = function (hashKey) {
         angular.forEach($scope.list.items, function (value, key) {
             if (value.$$hashKey === hashKey.$$hashKey) {
                 $scope.list.items.splice(key, 1);
-                localStorage.saveListTest = angular.toJson($scope.list);
+                localStorage.saveListH = angular.toJson($scope.list);
             }
         });
     };
 
     $scope.addItem = function (text, explanation) {
-        if (text != "" && explanation != "") {
+        if (text.length>0 && explanation.length>0) {
             $scope.list.items.push({ titleTask: text, explanation: explanation, done: false });
-            localStorage.saveListTest = angular.toJson($scope.list);
+            localStorage.saveListH = angular.toJson($scope.list);
+            $scope.text="";
+            $scope.explanation="";
         }
     };
 
 
     $scope.updateTodo = function (value) {
         console.log('Saving title ' + value);
-        localStorage.saveListTest = angular.toJson($scope.list);
+        localStorage.saveListH = angular.toJson($scope.list);
     };
 
     $scope.cancelEdit = function (value) {
@@ -92,7 +94,12 @@ titleTaskApp.directive('inlineEdit', function ($timeout) {
                 scope.handleCancel({ value: scope.model });
             };
         },
-        templateUrl: 'inline-edit.html'
+        template: '<div><input type=\"text\" on-enter=\"save()\" on-esc=\"cancel()\" ng-model' +
+            '=\"model\" ng-show=\"editMode\"><button ng-click=\"cancel()\" ng-show=\"editMode\">cancel</button>' +
+            '<button ng-click=\"save()\" ng-show=\"editMode\">save</button><span ng-mouseenter=\"showEdit = true\" ' +
+            'ng-mouseleave=\"showEdit = false\"> <span ng-hide=\"editMode\" ng-click=\"edit()\">{{model}}</span>' +
+            '</span></div>'
+
     };
 });
 

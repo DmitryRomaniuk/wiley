@@ -5,16 +5,12 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<style>
-    a, .erase-elem {
-        cursor: pointer;
-    }
-</style>
 
 <body ng-controller="titleTaskController" class="container">
     <div class="page-header">
-        <h1> Список дел </h1>
+        <h1> Task manager </h1>
     </div>
     <div class="panel">
         <div class="form-inline">
@@ -37,7 +33,7 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Complete</th>
+                    <th>Completed</th>
                     <th><a href="#" ng-click="sortType = 'titleTask'; sortReverse = !sortReverse">Title
                         <span ng-show="sortType == 'titleTask' && !sortReverse" class="fa fa-caret-down"></span>
                         <span ng-show="sortType == 'titleTask' && sortReverse" class="fa fa-caret-up"></span>

@@ -1,0 +1,25 @@
+thead th:nth-child(1) {
+    width: 50px;
+}
+thead th:nth-child(2) {
+    width: 40%;
+}
+thead th:nth-child(3) {
+    width: 60%;
+}
+thead th:nth-child(4) {
+    width: 50px;
+}
+tbody td:first-child, tbody td:last-child {
+     text-align: center;
+}
+a, .erase-elem {
+    cursor: pointer;
+}
+a {
+    margin-left: 5px;
+}
+table button {
+    margin-top: 3px;
+    margin-left: 3px;
+}

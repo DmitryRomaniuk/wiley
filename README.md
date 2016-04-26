@@ -1,9 +1,6 @@
 Test task
 Based on angular+localStorage
-to start
-# npm install
-# node server.js
-open http://localhost:8080/index.html
+to start open index.html
 
 Project description:
 Write web application without server.
